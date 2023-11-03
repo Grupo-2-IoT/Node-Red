@@ -1,4 +1,6 @@
 # Invernadero Inteligente
+## Repositorio de Node-Red
+
 ### Implementación del Internet de las Cosas (IoT)
 
 Este es el repositorio oficial de nuestro proyecto para la materia de _Implementación del Internet de las Cosas_. El objetivo del mismo es archivar y colaborar en el material necesario para la elaboración de este proyecto.
