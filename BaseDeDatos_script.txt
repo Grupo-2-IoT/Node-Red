@@ -1,0 +1,76 @@
+CREATE DATABASE Desertico;
+
+USE Desertico;
+
+CREATE TABLE Maceta (
+	idMaceta int(20) AUTO_INCREMENT PRIMARY KEY,
+    consumoAgua float
+);
+
+CREATE TABLE Sensores (
+    idSensores int(20) AUTO_INCREMENT PRIMARY KEY,
+    temperatura float,
+    humedad float,
+    humedadTierra float,
+    dia bit
+);
+
+CREATE TABLE Registro (
+    idRegistro int(20) AUTO_INCREMENT PRIMARY KEY,
+    idSensores INT,
+    idMaceta INT,
+    FOREIGN KEY (idSensores) REFERENCES Sensores(idSensores),
+    FOREIGN KEY (idMaceta) REFERENCES Maceta(idMaceta)
+);
+
+
+CREATE DATABASE Cultivo;
+
+USE Cultivo;
+
+CREATE TABLE Maceta (
+	idMaceta int(20) AUTO_INCREMENT PRIMARY KEY,
+    consumoAgua float
+);
+
+CREATE TABLE Sensores (
+    idSensores int(20) AUTO_INCREMENT PRIMARY KEY,
+    temperatura float,
+    humedad float,
+    humedadTierra float,
+    dia bit
+);
+
+CREATE TABLE Registro (
+    idRegistro int(20) AUTO_INCREMENT PRIMARY KEY,
+    idSensores INT,
+    idMaceta INT,
+    FOREIGN KEY (idSensores) REFERENCES Sensores(idSensores),
+    FOREIGN KEY (idMaceta) REFERENCES Maceta(idMaceta)
+);
+
+
+CREATE DATABASE PlantasHogar;
+
+USE PlantasHogar;
+
+CREATE TABLE Maceta (
+	idMaceta int(20) AUTO_INCREMENT PRIMARY KEY,
+    consumoAgua float
+);
+
+CREATE TABLE Sensores (
+    idSensores int(20) AUTO_INCREMENT PRIMARY KEY,
+    temperatura float,
+    humedad float,
+    humedadTierra float,
+    dia bit
+);
+
+CREATE TABLE Registro (
+    idRegistro int(20) AUTO_INCREMENT PRIMARY KEY,
+    idSensores INT,
+    idMaceta INT,
+    FOREIGN KEY (idSensores) REFERENCES Sensores(idSensores),
+    FOREIGN KEY (idMaceta) REFERENCES Maceta(idMaceta)
+);

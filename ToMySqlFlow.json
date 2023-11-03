@@ -1,0 +1,22 @@
+[
+    {
+        "id": "c3cda6e04c5bdbf5",
+        "type": "function",
+        "z": "225215da346cdf1f",
+        "name": "Send to DB",
+        "func": "var query = \"INSERT INTO sensores(temperatura, humedad, huemdadtierra, dia)\" + \n            \"VALUES ('\";\n\nquery = query + msg.payload.TEMPERATURA + \"','\";\nquery = query + msg.payload.HUMEDAD + \"','\";\nquery = query + msg.payload.HUMEDADTIERRA + \"','\";\nquery = query + msg.payload.DIA + \"');\";\n\nmsg.topic=query;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "fa5c86fcfe27fb4c"
+            ]
+        ]
+    }
+]
