@@ -12,7 +12,7 @@ Este es el repositorio oficial de nuestro proyecto para la materia de _Implement
 
 ## Integrantes:
 - Ivan Coronado, A01254785
-- Francisco Rochín, A0125
+- Francisco Rochín, A01252974
 - Andrés Martínez, A00227463
 - Andrés Sandoval, A01253138
 - Fernanda Granados, A01252895
