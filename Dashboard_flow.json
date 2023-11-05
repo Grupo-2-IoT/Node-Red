@@ -1,0 +1,22 @@
+[
+    {
+        "id": "2724e1b87664deb8",
+        "type": "function",
+        "z": "8374553c656dc7fc",
+        "name": "Mandar a Base de Datos - Cultivo",
+        "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \"\n\"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" + msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 900,
+        "wires": [
+            [
+                "1bbce58fc96a3283"
+            ]
+        ]
+    }
+]
