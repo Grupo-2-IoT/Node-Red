@@ -1,5 +1,408 @@
 [
     {
+        "id": "8374553c656dc7fc",
+        "type": "tab",
+        "label": "DashboardWJSON",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6bf9324142f562bc",
+        "type": "mqtt in",
+        "z": "8374553c656dc7fc",
+        "name": "Ecosistema Desertico",
+        "topic": "room/desertico",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "274b712b938983cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "8becb96e36cb5ecf"
+            ]
+        ]
+    },
+    {
+        "id": "6b360f65b2d8ff65",
+        "type": "function",
+        "z": "8374553c656dc7fc",
+        "name": "Mandar a Base de Datos - Desertico",
+        "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \"\n\"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" + msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "add78c25ef95f871"
+            ]
+        ]
+    },
+    {
+        "id": "8becb96e36cb5ecf",
+        "type": "json",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "6b360f65b2d8ff65",
+                "4f5ddd60868148ce",
+                "061c7dd269bafa11",
+                "3dc704d3628743df",
+                "09c01de7de83698e"
+            ]
+        ]
+    },
+    {
+        "id": "add78c25ef95f871",
+        "type": "mysql",
+        "z": "8374553c656dc7fc",
+        "mydb": "415b6a60cbe7e4ee",
+        "name": "DB-Desertico",
+        "x": 820,
+        "y": 180,
+        "wires": [
+            [
+                "fea63d5932cb188a"
+            ]
+        ]
+    },
+    {
+        "id": "fea63d5932cb188a",
+        "type": "debug",
+        "z": "8374553c656dc7fc",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "061c7dd269bafa11",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad",
+        "group": "5acf24717bc28b1e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{msg.payload.Humedad}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3dc704d3628743df",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad De La Tierra",
+        "group": "5acf24717bc28b1e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad De La Tierra",
+        "label": "%",
+        "format": "{{msg.payload.HumedadTierra}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 650,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "09c01de7de83698e",
+        "type": "ui_text",
+        "z": "8374553c656dc7fc",
+        "group": "5acf24717bc28b1e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Dia",
+        "label": "Día",
+        "format": "{{msg.payload.Dia}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 590,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "4f5ddd60868148ce",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "group": "5acf24717bc28b1e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tempertura",
+        "label": "°C",
+        "format": "{{msg.payload.Temperatura}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b0ab5018907e7b46",
+        "type": "mqtt in",
+        "z": "8374553c656dc7fc",
+        "name": "Ecosistema Habitacional",
+        "topic": "room/habitacional",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "274b712b938983cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "a77def74dfbcb058"
+            ]
+        ]
+    },
+    {
+        "id": "ad8cbf760c4152e4",
+        "type": "function",
+        "z": "8374553c656dc7fc",
+        "name": "Mandar a Base de Datos - Habitacional ",
+        "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \"\n\"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" + msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 540,
+        "wires": [
+            [
+                "3a78fd03bb3bc3e9"
+            ]
+        ]
+    },
+    {
+        "id": "3a78fd03bb3bc3e9",
+        "type": "mysql",
+        "z": "8374553c656dc7fc",
+        "mydb": "34beafe71837d1c9",
+        "name": "DB-Habitacional",
+        "x": 860,
+        "y": 540,
+        "wires": [
+            [
+                "161752963c081c86"
+            ]
+        ]
+    },
+    {
+        "id": "161752963c081c86",
+        "type": "debug",
+        "z": "8374553c656dc7fc",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "cb877961bf3a0ea6",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad",
+        "group": "ab83424e67e689b1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{msg.payload.Humedad}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6a29feedb1cd939c",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad De La Tierra",
+        "group": "ab83424e67e689b1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad De La Tierra",
+        "label": "%",
+        "format": "{{msg.payload.HumedadTierra}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "938c97fc049b4bef",
+        "type": "ui_text",
+        "z": "8374553c656dc7fc",
+        "group": "ab83424e67e689b1",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Dia",
+        "label": "Día",
+        "format": "{{msg.payload.Dia}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b7a96a74f3dbb322",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "group": "ab83424e67e689b1",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tempertura",
+        "label": "°C",
+        "format": "{{msg.payload.Temperatura}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "30a66237c0614788",
+        "type": "mqtt in",
+        "z": "8374553c656dc7fc",
+        "name": "Ecosistema Cultivo",
+        "topic": "room/cultivo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "274b712b938983cb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 900,
+        "wires": [
+            [
+                "ceae42c5159fcdd5"
+            ]
+        ]
+    },
+    {
         "id": "2724e1b87664deb8",
         "type": "function",
         "z": "8374553c656dc7fc",
@@ -18,5 +421,284 @@
                 "1bbce58fc96a3283"
             ]
         ]
+    },
+    {
+        "id": "ceae42c5159fcdd5",
+        "type": "json",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 330,
+        "y": 900,
+        "wires": [
+            [
+                "2724e1b87664deb8",
+                "571407b8065424cf",
+                "6a4f5c8090af85de",
+                "3e8de713d5178b28",
+                "4a2e1031a81d813a"
+            ]
+        ]
+    },
+    {
+        "id": "1bbce58fc96a3283",
+        "type": "mysql",
+        "z": "8374553c656dc7fc",
+        "mydb": "672261ab26355df0",
+        "name": "DB-Cultivo",
+        "x": 850,
+        "y": 900,
+        "wires": [
+            [
+                "8f9a1a72ef9e7c93"
+            ]
+        ]
+    },
+    {
+        "id": "8f9a1a72ef9e7c93",
+        "type": "debug",
+        "z": "8374553c656dc7fc",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "6a4f5c8090af85de",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad",
+        "group": "0c9239e3ca8fec5c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{msg.payload.Humedad}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "3e8de713d5178b28",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "Humedad De La Tierra",
+        "group": "0c9239e3ca8fec5c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad De La Tierra",
+        "label": "%",
+        "format": "{{msg.payload.HumedadTierra}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "4a2e1031a81d813a",
+        "type": "ui_text",
+        "z": "8374553c656dc7fc",
+        "group": "0c9239e3ca8fec5c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Dia",
+        "label": "Día",
+        "format": "{{msg.payload.Dia}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 610,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "571407b8065424cf",
+        "type": "ui_gauge",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "group": "0c9239e3ca8fec5c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tempertura",
+        "label": "°C",
+        "format": "{{msg.payload.Temperatura}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "a77def74dfbcb058",
+        "type": "json",
+        "z": "8374553c656dc7fc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 310,
+        "y": 540,
+        "wires": [
+            [
+                "b7a96a74f3dbb322",
+                "cb877961bf3a0ea6",
+                "6a29feedb1cd939c",
+                "938c97fc049b4bef",
+                "ad8cbf760c4152e4"
+            ]
+        ]
+    },
+    {
+        "id": "274b712b938983cb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.41.49.243",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "415b6a60cbe7e4ee",
+        "type": "MySQLdatabase",
+        "name": "Database Desertico",
+        "host": "localhost",
+        "port": "3306",
+        "db": "desertico",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "5acf24717bc28b1e",
+        "type": "ui_group",
+        "name": "Desertico",
+        "tab": "d81f9fd67f93ae42",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "34beafe71837d1c9",
+        "type": "MySQLdatabase",
+        "name": "Habitacional",
+        "host": "localhost",
+        "port": "3306",
+        "db": "plantashogar",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "ab83424e67e689b1",
+        "type": "ui_group",
+        "name": "Habitacional",
+        "tab": "d81f9fd67f93ae42",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "672261ab26355df0",
+        "type": "MySQLdatabase",
+        "name": "Base de Datos de Cultivo",
+        "host": "localhost",
+        "port": "3306",
+        "db": "cultivo",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "0c9239e3ca8fec5c",
+        "type": "ui_group",
+        "name": "Cultivo",
+        "tab": "d81f9fd67f93ae42",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d81f9fd67f93ae42",
+        "type": "ui_tab",
+        "name": "Room",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
     }
 ]
