@@ -15,7 +15,7 @@ const char* MQTT_username = NULL;
 const char* MQTT_password = NULL; 
 
 // Change the variable to your Raspberry Pi IP address, so it connects to your MQTT broker
-const char* mqtt_server = "10.41.49.243";
+const char* mqtt_server = "10.41.53.178";
 //For example
 //const char* mqtt_server = "192.168.1.106";
 
