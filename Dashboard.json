@@ -1,6 +1,6 @@
 [
     {
-        "id": "8374553c656dc7fc",
+        "id": "e4d9558ed2fd3436",
         "type": "tab",
         "label": "DashboardWJSON",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "6bf9324142f562bc",
+        "id": "3d74871b9afb9620",
         "type": "mqtt in",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Ecosistema Desertico",
         "topic": "room/desertico",
         "qos": "2",
@@ -24,14 +24,14 @@
         "y": 180,
         "wires": [
             [
-                "8becb96e36cb5ecf"
+                "129a86771a6d32de"
             ]
         ]
     },
     {
-        "id": "6b360f65b2d8ff65",
+        "id": "350ee41b8935846c",
         "type": "function",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Mandar a Base de Datos - Desertico",
         "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \" +\n  \"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" +\n  msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\nreturn msg;",
         "outputs": 1,
@@ -44,14 +44,14 @@
         "y": 180,
         "wires": [
             [
-                "add78c25ef95f871"
+                "48412efa567486aa"
             ]
         ]
     },
     {
-        "id": "8becb96e36cb5ecf",
+        "id": "129a86771a6d32de",
         "type": "json",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -60,18 +60,18 @@
         "y": 180,
         "wires": [
             [
-                "6b360f65b2d8ff65",
-                "4f5ddd60868148ce",
-                "061c7dd269bafa11",
-                "3dc704d3628743df",
-                "09c01de7de83698e"
+                "350ee41b8935846c",
+                "bfb718ef29bfd6f1",
+                "e9b68edaa77e001a",
+                "6b78dd4b1fbcf85a",
+                "5a9df964b1cbc37a"
             ]
         ]
     },
     {
-        "id": "fea63d5932cb188a",
+        "id": "73458eb6a6c1c736",
         "type": "debug",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -81,14 +81,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 260,
+        "x": 940,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "b0ab5018907e7b46",
+        "id": "8b84f41813c5ddd6",
         "type": "mqtt in",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Ecosistema Habitacional",
         "topic": "room/habitacional",
         "qos": "2",
@@ -102,14 +102,14 @@
         "y": 540,
         "wires": [
             [
-                "a77def74dfbcb058"
+                "77139efc6ff32d81"
             ]
         ]
     },
     {
-        "id": "ad8cbf760c4152e4",
+        "id": "a2a8f16acf138616",
         "type": "function",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Mandar a Base de Datos - Habitacional ",
         "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \" +\n  \"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" +\n  msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\nreturn msg;",
         "outputs": 1,
@@ -122,14 +122,14 @@
         "y": 540,
         "wires": [
             [
-                "3a78fd03bb3bc3e9"
+                "0fc66ac1d9a46365"
             ]
         ]
     },
     {
-        "id": "161752963c081c86",
+        "id": "c5176584667bba75",
         "type": "debug",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -139,14 +139,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 640,
+        "x": 920,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "30a66237c0614788",
+        "id": "d4e7c544c78ddd0b",
         "type": "mqtt in",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Ecosistema Cultivo",
         "topic": "room/cultivo",
         "qos": "2",
@@ -160,14 +160,14 @@
         "y": 900,
         "wires": [
             [
-                "ceae42c5159fcdd5"
+                "899ef46d142f977d"
             ]
         ]
     },
     {
-        "id": "2724e1b87664deb8",
+        "id": "42903e8294c1caa4",
         "type": "function",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Mandar a Base de Datos - Cultivo",
         "func": "msg.topic = \"INSERT INTO sensores(temperatura, humedad, humedadTierra, dia) \" +\n  \"VALUES ('\" + msg.payload.Temperatura + \"', '\" + msg.payload.Humedad + \"', '\" +\n  msg.payload.HumedadTierra + \"', '\" + msg.payload.Dia + \"');\";\n\nreturn msg;",
         "outputs": 1,
@@ -180,14 +180,14 @@
         "y": 900,
         "wires": [
             [
-                "1bbce58fc96a3283"
+                "f180cace10421a91"
             ]
         ]
     },
     {
-        "id": "ceae42c5159fcdd5",
+        "id": "899ef46d142f977d",
         "type": "json",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -196,18 +196,18 @@
         "y": 900,
         "wires": [
             [
-                "2724e1b87664deb8",
-                "571407b8065424cf",
-                "6a4f5c8090af85de",
-                "3e8de713d5178b28",
-                "4a2e1031a81d813a"
+                "42903e8294c1caa4",
+                "e0cbc6ccc5dbb66f",
+                "39e4f534583df91c",
+                "da5de61493181e75",
+                "f463d0625df45c1e"
             ]
         ]
     },
     {
-        "id": "8f9a1a72ef9e7c93",
+        "id": "8691d580db331318",
         "type": "debug",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -217,14 +217,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 1000,
+        "x": 860,
+        "y": 840,
         "wires": []
     },
     {
-        "id": "a77def74dfbcb058",
+        "id": "77139efc6ff32d81",
         "type": "json",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "property": "payload",
         "action": "obj",
@@ -233,60 +233,63 @@
         "y": 540,
         "wires": [
             [
-                "b7a96a74f3dbb322",
-                "cb877961bf3a0ea6",
-                "6a29feedb1cd939c",
-                "938c97fc049b4bef",
-                "ad8cbf760c4152e4"
+                "63f39ac649d80db4",
+                "702da34649183bf1",
+                "cae0e92dd9bddc66",
+                "49eb5fce629d825b",
+                "a2a8f16acf138616"
             ]
         ]
     },
     {
-        "id": "add78c25ef95f871",
+        "id": "48412efa567486aa",
         "type": "mysql",
-        "z": "8374553c656dc7fc",
-        "mydb": "415b6a60cbe7e4ee",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "4d1a8fae4701c6f0",
         "name": "DB-Desertico",
-        "x": 820,
+        "x": 950,
         "y": 180,
         "wires": [
             [
-                "fea63d5932cb188a"
+                "73458eb6a6c1c736",
+                "589837d0c061f97e"
             ]
         ]
     },
     {
-        "id": "3a78fd03bb3bc3e9",
+        "id": "0fc66ac1d9a46365",
         "type": "mysql",
-        "z": "8374553c656dc7fc",
-        "mydb": "34beafe71837d1c9",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "6f98a30dfde6cebd",
         "name": "DB-Habitacional",
-        "x": 860,
+        "x": 920,
         "y": 540,
         "wires": [
             [
-                "161752963c081c86"
+                "c5176584667bba75",
+                "d45669dbfc2c6a63"
             ]
         ]
     },
     {
-        "id": "1bbce58fc96a3283",
+        "id": "f180cace10421a91",
         "type": "mysql",
-        "z": "8374553c656dc7fc",
-        "mydb": "672261ab26355df0",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "a346989fb1ba06de",
         "name": "DB-Cultivo",
         "x": 850,
         "y": 900,
         "wires": [
             [
-                "8f9a1a72ef9e7c93"
+                "8691d580db331318",
+                "7562e4958e6722dc"
             ]
         ]
     },
     {
-        "id": "09c01de7de83698e",
+        "id": "5a9df964b1cbc37a",
         "type": "ui_text",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "group": "5acf24717bc28b1e",
         "order": 3,
         "width": 0,
@@ -305,9 +308,9 @@
         "wires": []
     },
     {
-        "id": "938c97fc049b4bef",
+        "id": "49eb5fce629d825b",
         "type": "ui_text",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "group": "ab83424e67e689b1",
         "order": 3,
         "width": 0,
@@ -326,9 +329,9 @@
         "wires": []
     },
     {
-        "id": "4a2e1031a81d813a",
+        "id": "f463d0625df45c1e",
         "type": "ui_text",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "group": "0c9239e3ca8fec5c",
         "order": 3,
         "width": 0,
@@ -347,9 +350,9 @@
         "wires": []
     },
     {
-        "id": "061c7dd269bafa11",
+        "id": "e9b68edaa77e001a",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad",
         "group": "5acf24717bc28b1e",
         "order": 1,
@@ -375,9 +378,9 @@
         "wires": []
     },
     {
-        "id": "3dc704d3628743df",
+        "id": "6b78dd4b1fbcf85a",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad De La Tierra",
         "group": "5acf24717bc28b1e",
         "order": 2,
@@ -403,9 +406,9 @@
         "wires": []
     },
     {
-        "id": "4f5ddd60868148ce",
+        "id": "bfb718ef29bfd6f1",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "group": "5acf24717bc28b1e",
         "order": 8,
@@ -431,9 +434,9 @@
         "wires": []
     },
     {
-        "id": "cb877961bf3a0ea6",
+        "id": "702da34649183bf1",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad",
         "group": "ab83424e67e689b1",
         "order": 1,
@@ -459,9 +462,9 @@
         "wires": []
     },
     {
-        "id": "6a29feedb1cd939c",
+        "id": "cae0e92dd9bddc66",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad De La Tierra",
         "group": "ab83424e67e689b1",
         "order": 2,
@@ -487,9 +490,9 @@
         "wires": []
     },
     {
-        "id": "b7a96a74f3dbb322",
+        "id": "63f39ac649d80db4",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "group": "ab83424e67e689b1",
         "order": 8,
@@ -515,9 +518,9 @@
         "wires": []
     },
     {
-        "id": "6a4f5c8090af85de",
+        "id": "39e4f534583df91c",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad",
         "group": "0c9239e3ca8fec5c",
         "order": 1,
@@ -543,9 +546,9 @@
         "wires": []
     },
     {
-        "id": "3e8de713d5178b28",
+        "id": "da5de61493181e75",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "Humedad De La Tierra",
         "group": "0c9239e3ca8fec5c",
         "order": 2,
@@ -571,9 +574,9 @@
         "wires": []
     },
     {
-        "id": "571407b8065424cf",
+        "id": "e0cbc6ccc5dbb66f",
         "type": "ui_gauge",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "name": "",
         "group": "0c9239e3ca8fec5c",
         "order": 8,
@@ -599,9 +602,9 @@
         "wires": []
     },
     {
-        "id": "1f84f847ea7d5b0c",
+        "id": "9a600be80958de57",
         "type": "ui_template",
-        "z": "8374553c656dc7fc",
+        "z": "e4d9558ed2fd3436",
         "group": "5acf24717bc28b1e",
         "name": "",
         "order": 5,
@@ -617,6 +620,435 @@
         "y": 300,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "589837d0c061f97e",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "func": "msg.topic = \"SELECT * FROM Sensores ORDER BY fecha ASC;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 180,
+        "wires": [
+            [
+                "81896509776b5bc2"
+            ]
+        ]
+    },
+    {
+        "id": "9bb2a765f6c849bb",
+        "type": "ui_chart",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "group": "5acf24717bc28b1e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Record",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1780,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81896509776b5bc2",
+        "type": "json",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1290,
+        "y": 180,
+        "wires": [
+            [
+                "0ad95fccc6db948d"
+            ]
+        ]
+    },
+    {
+        "id": "0ad95fccc6db948d",
+        "type": "mysql",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "4d1a8fae4701c6f0",
+        "name": "DB-Desertico",
+        "x": 1450,
+        "y": 180,
+        "wires": [
+            [
+                "b26b1c33551d98b6"
+            ]
+        ]
+    },
+    {
+        "id": "b26b1c33551d98b6",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Extraer msg",
+        "func": "var dataTemperatura = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.temperatura };\n});\n\nvar dataHumedad = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedad };\n});\n\nvar dataHumedadTierra = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedadTierra };\n});\n\nvar dataDia = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.dia };\n});\n\nvar dataConsumoAgua = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.consumoAgua };\n});\n\nmsg.payload = [\n    {\n        \"series\": [\"Temperatura\", \"Humedad\", \"Humedad Tierra\", \"Día\", \"Consumo Agua\"],\n        \"data\": [dataTemperatura, dataHumedad, dataHumedadTierra, dataDia, dataConsumoAgua],\n        \"labels\": [\"\", \"\", \"\", \"\", \"\"]\n    }\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1630,
+        "y": 180,
+        "wires": [
+            [
+                "9bb2a765f6c849bb"
+            ]
+        ]
+    },
+    {
+        "id": "7f87035e26c36265",
+        "type": "inject",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM Sensores ORDER BY fecha ASC;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1110,
+        "y": 60,
+        "wires": [
+            [
+                "81896509776b5bc2"
+            ]
+        ]
+    },
+    {
+        "id": "d45669dbfc2c6a63",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "func": "msg.topic = \"SELECT * FROM Sensores ORDER BY fecha ASC;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 540,
+        "wires": [
+            [
+                "75159b4d685b0376"
+            ]
+        ]
+    },
+    {
+        "id": "75159b4d685b0376",
+        "type": "json",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1250,
+        "y": 540,
+        "wires": [
+            [
+                "a4efe1c9e4baf6e1"
+            ]
+        ]
+    },
+    {
+        "id": "a4efe1c9e4baf6e1",
+        "type": "mysql",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "6f98a30dfde6cebd",
+        "name": "DB-Habitacional",
+        "x": 1420,
+        "y": 540,
+        "wires": [
+            [
+                "b9ad3d6f9ec3c205"
+            ]
+        ]
+    },
+    {
+        "id": "b9ad3d6f9ec3c205",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Extraer msg",
+        "func": "var dataTemperatura = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.temperatura };\n});\n\nvar dataHumedad = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedad };\n});\n\nvar dataHumedadTierra = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedadTierra };\n});\n\nvar dataDia = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.dia };\n});\n\nvar dataConsumoAgua = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.consumoAgua };\n});\n\nmsg.payload = [\n    {\n        \"series\": [\"Temperatura\", \"Humedad\", \"Humedad Tierra\", \"Día\", \"Consumo Agua\"],\n        \"data\": [dataTemperatura, dataHumedad, dataHumedadTierra, dataDia, dataConsumoAgua],\n        \"labels\": [\"\", \"\", \"\", \"\", \"\"]\n    }\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1610,
+        "y": 540,
+        "wires": [
+            [
+                "4a91e37570909d30"
+            ]
+        ]
+    },
+    {
+        "id": "4a91e37570909d30",
+        "type": "ui_chart",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "group": "ab83424e67e689b1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Record",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1760,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7562e4958e6722dc",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "func": "msg.topic = \"SELECT * FROM Sensores ORDER BY fecha ASC;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 900,
+        "wires": [
+            [
+                "02c035e9878c282e"
+            ]
+        ]
+    },
+    {
+        "id": "02c035e9878c282e",
+        "type": "json",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1150,
+        "y": 900,
+        "wires": [
+            [
+                "a6105078f6135dd0"
+            ]
+        ]
+    },
+    {
+        "id": "a6105078f6135dd0",
+        "type": "mysql",
+        "z": "e4d9558ed2fd3436",
+        "mydb": "a346989fb1ba06de",
+        "name": "DB-Cultivo",
+        "x": 1310,
+        "y": 900,
+        "wires": [
+            [
+                "1ad26a45a95c2a17"
+            ]
+        ]
+    },
+    {
+        "id": "1ad26a45a95c2a17",
+        "type": "function",
+        "z": "e4d9558ed2fd3436",
+        "name": "Extraer msg",
+        "func": "var dataTemperatura = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.temperatura };\n});\n\nvar dataHumedad = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedad };\n});\n\nvar dataHumedadTierra = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.humedadTierra };\n});\n\nvar dataDia = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.dia };\n});\n\nvar dataConsumoAgua = msg.payload.map(function(row) {\n    return { \"x\": row.fecha, \"y\": row.consumoAgua };\n});\n\nmsg.payload = [\n    {\n        \"series\": [\"Temperatura\", \"Humedad\", \"Humedad Tierra\", \"Día\", \"Consumo Agua\"],\n        \"data\": [dataTemperatura, dataHumedad, dataHumedadTierra, dataDia, dataConsumoAgua],\n        \"labels\": [\"\", \"\", \"\", \"\", \"\"]\n    }\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1490,
+        "y": 900,
+        "wires": [
+            [
+                "03fa0e6d6b11b326"
+            ]
+        ]
+    },
+    {
+        "id": "03fa0e6d6b11b326",
+        "type": "ui_chart",
+        "z": "e4d9558ed2fd3436",
+        "name": "",
+        "group": "0c9239e3ca8fec5c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "Record",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1640,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "895f0b1ff29caca5",
+        "type": "inject",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM Sensores ORDER BY fecha ASC;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1110,
+        "y": 460,
+        "wires": [
+            [
+                "75159b4d685b0376"
+            ]
+        ]
+    },
+    {
+        "id": "91ad994b618af0f1",
+        "type": "inject",
+        "z": "e4d9558ed2fd3436",
+        "name": "Get",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "SELECT * FROM Sensores ORDER BY fecha ASC;",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1030,
+        "y": 840,
+        "wires": [
+            [
+                "02c035e9878c282e"
+            ]
         ]
     },
     {
@@ -651,7 +1083,7 @@
         "sessionExpiry": ""
     },
     {
-        "id": "415b6a60cbe7e4ee",
+        "id": "4d1a8fae4701c6f0",
         "type": "MySQLdatabase",
         "name": "Database Desertico",
         "host": "localhost",
@@ -661,7 +1093,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "34beafe71837d1c9",
+        "id": "6f98a30dfde6cebd",
         "type": "MySQLdatabase",
         "name": "Habitacional",
         "host": "localhost",
@@ -671,7 +1103,7 @@
         "charset": "UTF8"
     },
     {
-        "id": "672261ab26355df0",
+        "id": "a346989fb1ba06de",
         "type": "MySQLdatabase",
         "name": "Base de Datos de Cultivo",
         "host": "localhost",
